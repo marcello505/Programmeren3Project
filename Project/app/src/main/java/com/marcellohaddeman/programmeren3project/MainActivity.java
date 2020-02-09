@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void elementsReceived(List<Element> elements){
-        //TODO Deze elements doorsturen naar de RecycleViewAdapter zodat deze worden neergezet in de bijbehorende items.
+        Toast toast = Toast.makeText(getApplicationContext(), "Aantal resultaten: " + elements.size(), Toast.LENGTH_LONG);
+        toast.show();
         RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(this, elements);
         this.mRecyclerView.setAdapter(recycleViewAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
