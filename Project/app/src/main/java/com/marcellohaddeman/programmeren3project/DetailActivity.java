@@ -66,7 +66,7 @@ public class DetailActivity extends AppCompatActivity {
         //TODO Als het scherm veranderd van orientatie dan moet hij van layout veranderen.
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
+            setContentView(R.layout.activity_detail);
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
         }
