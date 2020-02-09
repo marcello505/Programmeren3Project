@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
         this.mRecyclerView.setAdapter(recycleViewAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //TODO Als het scherm veranderd van orientatie dan moet hij van layout veranderen.
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+        }
     }
 
     protected class FetchElements extends AsyncTask<URL, Void, List<Element>>{

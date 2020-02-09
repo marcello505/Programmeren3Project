@@ -3,6 +3,7 @@ package com.marcellohaddeman.programmeren3project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -57,5 +58,17 @@ public class DetailActivity extends AppCompatActivity {
         String plaatsingsDatum = intent.getIntExtra("plaatsingsdatum", 0) + "";
         this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum);
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //TODO Als het scherm veranderd van orientatie dan moet hij van layout veranderen.
+
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+
+        }
     }
 }
