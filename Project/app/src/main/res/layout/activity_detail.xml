@@ -13,9 +13,10 @@
         android:layout_height="wrap_content"
         android:text="Titel van het element"
         android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_activity_detail_geografische_ligging"
@@ -37,28 +38,30 @@
     <TextView
         android:id="@+id/tv_activity_detail_kunstenaar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/kunstenaar"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_detail_kunstenaar_invoer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_activity_detail_image" />
+        app:layout_constraintTop_toTopOf="@+id/tv_activity_detail_kunstenaar_invoer" />
 
     <TextView
         android:id="@+id/tv_activity_detail_kunstenaar_invoer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Naam van de kunstenaar"
         android:layout_marginStart="20dp"
+        android:text="Naam van de kunstenaar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_activity_detail_kunstenaar"
-        app:layout_constraintTop_toBottomOf="@+id/iv_activity_detail_image"/>
+        app:layout_constraintTop_toBottomOf="@+id/iv_activity_detail_image" />
 
     <TextView
         android:id="@+id/tv_activity_detail_beschrijving"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/beschrijving"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_detail_beschrijving_invoer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_kunstenaar" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_kunstenaar_invoer" />
 
     <TextView
         android:id="@+id/tv_activity_detail_beschrijving_invoer"
@@ -72,10 +75,11 @@
     <TextView
         android:id="@+id/tv_activity_detail_materiaal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/materiaal"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_detail_materiaal_invoer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_beschrijving" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_beschrijving_invoer" />
 
     <TextView
         android:id="@+id/tv_activity_detail_materiaal_invoer"
@@ -89,10 +93,11 @@
     <TextView
         android:id="@+id/tv_activity_detail_ondergrond"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/ondergrond"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_detail_ondergrond_invoer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_materiaal" />
+        app:layout_constraintTop_toTopOf="@+id/tv_activity_detail_ondergrond_invoer" />
 
     <TextView
         android:id="@+id/tv_activity_detail_ondergrond_invoer"
@@ -106,10 +111,11 @@
     <TextView
         android:id="@+id/tv_activity_detail_plaatsingsdatum"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plaatsingsdatuum"
+        android:layout_height="0dp"
+        android:text="@string/plaatsingsdatum"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_detail_plaatsingsdatum_invoer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_ondergrond" />
+        app:layout_constraintTop_toTopOf="@+id/tv_activity_detail_plaatsingsdatum_invoer" />
 
     <TextView
         android:id="@+id/tv_activity_detail_plaatsingsdatum_invoer"

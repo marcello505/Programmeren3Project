@@ -82,6 +82,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DetailActivity.class);
+                    intent.putExtra("titel", element.getTitel());
+                    intent.putExtra("geografischeLigging", element.getGeografischeLigging());
+                    intent.putExtra("imageURL", element.getImageUrl());
+                    intent.putExtra("kunstenaar", element.getKunstenaar());
+                    intent.putExtra("beschrijving", element.getBeschrijving());
+                    intent.putExtra("materiaal", element.getMateriaal());
+                    intent.putExtra("ondergrond", element.getOndergrond());
+                    intent.putExtra("plaatsingsdatum", element.getPlaatsingDatum());
+                    context.startActivity(intent);
                 }
             });
         }
