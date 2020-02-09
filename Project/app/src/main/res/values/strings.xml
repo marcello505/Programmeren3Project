@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Programmeren3Project</string>
+    <string name="beschrijving">Beschrijving:</string>
+    <string name="kunstenaar">Kunstenaar:</string>
+    <string name="materiaal">Materiaal:</string>
+    <string name="ondergrond">Ondergrond:</string>
+    <string name="plaatsingsdatuum">Plaatsingsdatuum:</string>
 </resources>

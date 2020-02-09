@@ -4,6 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_activity_detail_titel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Titel van het element"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_geografische_ligging"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Geografische Ligging"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_titel" />
+
+    <ImageView
+        android:id="@+id/iv_activity_detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_geografische_ligging" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_kunstenaar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kunstenaar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_activity_detail_image" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_kunstenaar_invoer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Naam van de kunstenaar"
+        android:layout_marginStart="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_activity_detail_kunstenaar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_activity_detail_image"/>
+
+    <TextView
+        android:id="@+id/tv_activity_detail_beschrijving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/beschrijving"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_kunstenaar" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_beschrijving_invoer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Beschrijving van het object"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_activity_detail_kunstenaar_invoer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_kunstenaar_invoer" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_materiaal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/materiaal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_beschrijving" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_materiaal_invoer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Beschrijving van het materiaal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_activity_detail_beschrijving_invoer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_beschrijving_invoer" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_ondergrond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ondergrond"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_materiaal" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_ondergrond_invoer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Beschrijving van het ondergrond"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_activity_detail_materiaal_invoer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_materiaal_invoer" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_plaatsingsdatum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plaatsingsdatuum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_ondergrond" />
+
+    <TextView
+        android:id="@+id/tv_activity_detail_plaatsingsdatum_invoer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="datum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_activity_detail_plaatsingsdatum"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_ondergrond_invoer" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

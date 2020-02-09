@@ -81,7 +81,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, )
+                    Intent intent = new Intent(context, DetailActivity.class);
                 }
             });
         }
