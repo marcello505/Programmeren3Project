@@ -1,6 +1,8 @@
 package com.marcellohaddeman.programmeren3project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,20 +18,23 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
+    RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FetchElements fetchElements = new FetchElements();
         fetchElements.execute(NetworkUtils.buildURL());
+        this.mRecyclerView = findViewById(R.id.rc_activity_main);
 
     }
 
     protected void elementsReceived(List<Element> elements){
         //TODO Deze elements doorsturen naar de RecycleViewAdapter zodat deze worden neergezet in de bijbehorende items.
-        for(Element item : elements){
-            System.out.println(item.getTitel());
-        }
+        RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(this, elements);
+        this.mRecyclerView.setAdapter(recycleViewAdapter);
+        this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

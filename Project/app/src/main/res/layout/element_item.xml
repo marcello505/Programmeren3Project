@@ -10,11 +10,12 @@
 
     <ImageView
         android:id="@+id/iv_element_item_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
         android:id="@+id/tv_element_item_titel"
@@ -25,7 +26,8 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_element_item_image"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"/>
 
     <TextView
         android:id="@+id/tv_element_item_geografische_ligging"
@@ -34,7 +36,8 @@
         android:text="Geografische ligging"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_element_item_image"
-        app:layout_constraintTop_toBottomOf="@+id/tv_element_item_titel" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_element_item_titel"
+        android:layout_marginStart="10dp"/>
 
     <TextView
         android:id="@+id/tv_element_item_identificatie"
@@ -44,7 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_element_item_geografische_ligging"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:textAlignment="textEnd"/>
 
 
 
