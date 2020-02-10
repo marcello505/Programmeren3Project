@@ -62,16 +62,4 @@ public class DetailActivity extends AppCompatActivity {
         this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
 
     }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        //TODO Als het scherm veranderd van orientatie dan moet hij van layout veranderen.
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-        }
-    }
 }
