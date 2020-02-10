@@ -33,7 +33,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public ElementViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.element_item, parent, false);
         ElementViewHolder elementViewHolder = new ElementViewHolder(view);
-        Log.v(TAG, "onCreateViewHolder: is voltooid");
+        Log.v(TAG, "onCreateViewHolder: Finished method.");
         return elementViewHolder;
     }
 
@@ -75,7 +75,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
         public ElementViewHolder(@NonNull View itemView) {
             super(itemView);
-            Log.v(this.TAG, "ElementViewHolder: has been made");
+            Log.v(this.TAG, "ElementViewHolder: Has been made.");
             this.image = itemView.findViewById(R.id.iv_element_item_image);
             this.elementTitel = itemView.findViewById(R.id.tv_element_item_titel);
             this.geografischeLigging = itemView.findViewById(R.id.tv_element_item_geografische_ligging);

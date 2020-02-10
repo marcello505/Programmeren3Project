@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DetailActivity extends AppCompatActivity {
+    private static final String TAG = "DetailActivity";
+
     private TextView mTitel;
     private TextView mGeografischeLigging;
     private ImageView mImage;
@@ -60,6 +63,7 @@ public class DetailActivity extends AppCompatActivity {
         this.mOndergrondInvoer.setText(intent.getStringExtra("ondergrond"));
         SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
         this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
+        Log.v(TAG, "onCreate: Finished method.");
 
     }
 }

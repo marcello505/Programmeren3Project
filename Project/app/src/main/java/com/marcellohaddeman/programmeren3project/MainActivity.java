@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected class FetchElements extends AsyncTask<URL, Void, ArrayList<Element>>{
+        private static final String TAG = "FetchElements";
 
         @Override
         protected ArrayList<Element> doInBackground(URL... urls) {
@@ -101,13 +102,15 @@ public class MainActivity extends AppCompatActivity {
                     elementArrayList.add(element);
                 }
             }catch (Exception e){
-                Log.e(TAG, "doInBackground: " + e.getMessage());
+                Log.e(this.TAG, "doInBackground: " + e.getMessage());
             }
+            Log.v(this.TAG, "doInBackground: Finished method.");
             return elementArrayList;
         }
 
         @Override
         protected void onPostExecute(ArrayList<Element> elements) {
+            Log.v(this.TAG, "onPostExecute: Method started.");
             elementsReceived(elements);
         }
     }
