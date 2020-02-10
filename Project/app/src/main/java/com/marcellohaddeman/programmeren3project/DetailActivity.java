@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView mOndergrondInvoer;
     private TextView mPlaatsingsdatum;
     private TextView mPlaatsingsdatumInvoer;
+    private Button mToonOpKaart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class DetailActivity extends AppCompatActivity {
         this.mOndergrondInvoer = findViewById(R.id.tv_activity_detail_ondergrond_invoer);
         this.mPlaatsingsdatum = findViewById(R.id.tv_activity_detail_plaatsingsdatum);
         this.mPlaatsingsdatumInvoer = findViewById(R.id.tv_activity_detail_plaatsingsdatum_invoer);
+        this.mToonOpKaart = findViewById(R.id.btn_activity_detail_kaart);
+        //TODO Maak de ToonOpKaart knop af. Moet nog de GEOX en GEOY doorgeven via de ViewHolder
 
         Intent intent = getIntent();
         this.mTitel.setText(intent.getStringExtra("titel"));
