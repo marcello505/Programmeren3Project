@@ -28,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.mRecyclerView = findViewById(R.id.rc_activity_main);
         if(savedInstanceState != null){
-            Log.v(TAG, "onCreate: Succesvol een savedInstanceState geladen.");
+            Log.v(TAG, "onCreate: Successfully loaded savedInstanceState.");
             this.mElements = savedInstanceState.getParcelableArrayList("elements");
             elementsReceived(this.mElements);
         }else{
             FetchElements fetchElements = new FetchElements();
             fetchElements.execute(NetworkUtils.buildURL());
         }
-
+        Log.v(TAG, "onCreate: Finished method.");
     }
 
     protected void elementsReceived(ArrayList<Element> elements){
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "Aantal resultaten: " + elements.size(), Toast.LENGTH_LONG);
             toast.show();
         }
+        Log.v(TAG, "elementsReceived: Received elements");
         RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(this, this.mElements);
         this.mRecyclerView.setAdapter(recycleViewAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -51,19 +52,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        //TODO Als het scherm veranderd van orientatie dan moet hij van layout veranderen.
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-        }
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState) {
+        Log.v(TAG, "onSaveInstanceState: Has been called.");
         outState.putParcelableArrayList("elements", this.mElements);
         super.onSaveInstanceState(outState);
     }

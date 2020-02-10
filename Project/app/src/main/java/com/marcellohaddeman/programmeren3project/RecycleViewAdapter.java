@@ -65,6 +65,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     public class ElementViewHolder extends RecyclerView.ViewHolder{
 
+        private static final String TAG = "ElementViewHolder";
         private Context context;
         private Element element;
         private ImageView image;
@@ -74,6 +75,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
         public ElementViewHolder(@NonNull View itemView) {
             super(itemView);
+            Log.v(this.TAG, "ElementViewHolder: has been made");
             this.image = itemView.findViewById(R.id.iv_element_item_image);
             this.elementTitel = itemView.findViewById(R.id.tv_element_item_titel);
             this.geografischeLigging = itemView.findViewById(R.id.tv_element_item_geografische_ligging);
