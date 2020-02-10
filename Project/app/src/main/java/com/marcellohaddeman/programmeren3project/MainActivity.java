@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.mRecyclerView = findViewById(R.id.rc_activity_main);
+        //Kijkt of er een savedInstanceState is en laad de elements ArrayList eruit als hij er is.
         if(savedInstanceState != null){
             Log.v(TAG, "onCreate: Successfully loaded savedInstanceState.");
             this.mElements = savedInstanceState.getParcelableArrayList("elements");

@@ -40,7 +40,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     @Override
     public void onBindViewHolder(@NonNull ElementViewHolder holder, int position) {
         //Haal de image op en zet hem in de ImageView
-
         Glide.with(this.context)
                 .asBitmap()
                 .load(this.elements.get(position).getImageUrl())
@@ -80,6 +79,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             this.elementTitel = itemView.findViewById(R.id.tv_element_item_titel);
             this.geografischeLigging = itemView.findViewById(R.id.tv_element_item_geografische_ligging);
             this.identificatie = itemView.findViewById(R.id.tv_element_item_identificatie);
+            //Zet alle informatie die nodig is voor de DetailActivity in de intent Extras.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

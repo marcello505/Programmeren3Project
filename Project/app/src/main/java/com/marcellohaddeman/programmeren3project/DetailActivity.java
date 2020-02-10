@@ -1,5 +1,6 @@
 package com.marcellohaddeman.programmeren3project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -57,9 +59,9 @@ public class DetailActivity extends AppCompatActivity {
         this.mPlaatsingsdatum = findViewById(R.id.tv_activity_detail_plaatsingsdatum);
         this.mPlaatsingsdatumInvoer = findViewById(R.id.tv_activity_detail_plaatsingsdatum_invoer);
         this.mToonOpKaart = findViewById(R.id.btn_activity_detail_kaart);
-        //TODO Maak de ToonOpKaart knop af. Moet nog de GEOX en GEOY doorgeven via de ViewHolder
 
 
+        //Maak de logica van de knop klaar.
         this.mToonOpKaart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +71,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        //Haal de text op en zet ze in de bijbehorende TextViews.
         Intent intent = getIntent();
         this.mTitel.setText(intent.getStringExtra("titel"));
         this.mGeografischeLigging.setText(intent.getStringExtra("geografischeLigging"));
@@ -80,18 +83,34 @@ public class DetailActivity extends AppCompatActivity {
         this.mBeschrijvingInvoer.setText(intent.getStringExtra("beschrijving"));
         this.mMateriaalInvoer.setText(intent.getStringExtra("materiaal"));
         this.mOndergrondInvoer.setText(intent.getStringExtra("ondergrond"));
+
         if(intent.getLongExtra("plaatsingsdatum", 0) == 0){
             this.mPlaatsingsdatumInvoer.setText(R.string.onbekend);
         }else{
             SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
             this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
         }
+
         this.mLatitude = intent.getDoubleExtra("geoY", 0);
         this.mLongitude = intent.getDoubleExtra("geoX", 0);
         if(this.mLatitude == 0 && this.mLongitude == 0){
             this.mToonOpKaart.setVisibility(View.GONE);
         }
-        Log.v(TAG, "onCreate: Finished method.");
 
+        //Voeg een ActionBar toe met een back knop.
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        Log.v(TAG, "onCreate: Finished method.");
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return false;
     }
 }
