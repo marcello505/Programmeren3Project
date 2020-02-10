@@ -13,6 +13,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,21 +22,31 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     RecyclerView mRecyclerView;
+    ArrayList<Element> mElements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FetchElements fetchElements = new FetchElements();
-        fetchElements.execute(NetworkUtils.buildURL());
         this.mRecyclerView = findViewById(R.id.rc_activity_main);
+        if(savedInstanceState != null){
+            Log.v(TAG, "onCreate: Succesvol een savedInstanceState geladen.");
+            this.mElements = savedInstanceState.getParcelableArrayList("elements");
+            elementsReceived(this.mElements);
+        }else{
+            FetchElements fetchElements = new FetchElements();
+            fetchElements.execute(NetworkUtils.buildURL());
+        }
 
     }
 
-    protected void elementsReceived(List<Element> elements){
-        Toast toast = Toast.makeText(getApplicationContext(), "Aantal resultaten: " + elements.size(), Toast.LENGTH_LONG);
-        toast.show();
-        RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(this, elements);
+    protected void elementsReceived(ArrayList<Element> elements){
+        if(this.mElements == null){
+            this.mElements = elements;
+            Toast toast = Toast.makeText(getApplicationContext(), "Aantal resultaten: " + elements.size(), Toast.LENGTH_LONG);
+            toast.show();
+        }
+        RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(this, this.mElements);
         this.mRecyclerView.setAdapter(recycleViewAdapter);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -53,10 +64,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected class FetchElements extends AsyncTask<URL, Void, List<Element>>{
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("elements", this.mElements);
+        super.onSaveInstanceState(outState);
+    }
+
+    protected class FetchElements extends AsyncTask<URL, Void, ArrayList<Element>>{
 
         @Override
-        protected List<Element> doInBackground(URL... urls) {
+        protected ArrayList<Element> doInBackground(URL... urls) {
             String jsonElementResponse = null;
             ArrayList<Element> elementArrayList = new ArrayList<>();
 
@@ -102,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(List<Element> elements) {
+        protected void onPostExecute(ArrayList<Element> elements) {
             elementsReceived(elements);
         }
     }

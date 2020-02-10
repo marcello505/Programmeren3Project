@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DetailActivity extends AppCompatActivity {
     private TextView mTitel;
     private TextView mGeografischeLigging;
@@ -55,8 +58,8 @@ public class DetailActivity extends AppCompatActivity {
         this.mBeschrijvingInvoer.setText(intent.getStringExtra("beschrijving"));
         this.mMateriaalInvoer.setText(intent.getStringExtra("materiaal"));
         this.mOndergrondInvoer.setText(intent.getStringExtra("ondergrond"));
-        String plaatsingsDatum = intent.getIntExtra("plaatsingsdatum", 0) + "";
-        this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum);
+        SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
+        this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getIntExtra("plaatsingsdatum", 0))));
 
     }
 
@@ -66,7 +69,7 @@ public class DetailActivity extends AppCompatActivity {
         //TODO Als het scherm veranderd van orientatie dan moet hij van layout veranderen.
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.activity_detail);
+
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
 
         }

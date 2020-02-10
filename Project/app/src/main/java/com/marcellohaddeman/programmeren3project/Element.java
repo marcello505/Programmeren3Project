@@ -1,6 +1,9 @@
 package com.marcellohaddeman.programmeren3project;
 
-public class Element {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Element implements Parcelable {
     private int objectId;
     private String identificatie;
     private String titel;
@@ -30,6 +33,54 @@ public class Element {
 
     public Element() {
     }
+
+    protected Element(Parcel in) {
+        objectId = in.readInt();
+        identificatie = in.readString();
+        titel = in.readString();
+        geografischeLigging = in.readString();
+        kunstenaar = in.readString();
+        beschrijving = in.readString();
+        materiaal = in.readString();
+        ondergrond = in.readString();
+        plaatsingDatum = in.readInt();
+        imageUrl = in.readString();
+        geoX = in.readDouble();
+        geoY = in.readDouble();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(objectId);
+        dest.writeString(identificatie);
+        dest.writeString(titel);
+        dest.writeString(geografischeLigging);
+        dest.writeString(kunstenaar);
+        dest.writeString(beschrijving);
+        dest.writeString(materiaal);
+        dest.writeString(ondergrond);
+        dest.writeInt(plaatsingDatum);
+        dest.writeString(imageUrl);
+        dest.writeDouble(geoX);
+        dest.writeDouble(geoY);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Element> CREATOR = new Creator<Element>() {
+        @Override
+        public Element createFromParcel(Parcel in) {
+            return new Element(in);
+        }
+
+        @Override
+        public Element[] newArray(int size) {
+            return new Element[size];
+        }
+    };
 
     public String getTitel() {
         return titel;
