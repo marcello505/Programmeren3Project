@@ -92,6 +92,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                     intent.putExtra("materiaal", element.getMateriaal());
                     intent.putExtra("ondergrond", element.getOndergrond());
                     intent.putExtra("plaatsingsdatum", element.getPlaatsingDatum());
+                    intent.putExtra("geoX", element.getGeoX());
+                    intent.putExtra("geoY", element.getGeoY());
                     context.startActivity(intent);
                 }
             });
