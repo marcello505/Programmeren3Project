@@ -80,8 +80,12 @@ public class DetailActivity extends AppCompatActivity {
         this.mBeschrijvingInvoer.setText(intent.getStringExtra("beschrijving"));
         this.mMateriaalInvoer.setText(intent.getStringExtra("materiaal"));
         this.mOndergrondInvoer.setText(intent.getStringExtra("ondergrond"));
-        SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
-        this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
+        if(intent.getLongExtra("plaatsingsdatum", 0) == 0){
+            this.mPlaatsingsdatumInvoer.setText(R.string.onbekend);
+        }else{
+            SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
+            this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
+        }
         this.mLatitude = intent.getDoubleExtra("geoY", 0);
         this.mLongitude = intent.getDoubleExtra("geoX", 0);
         if(this.mLatitude == 0 && this.mLongitude == 0){

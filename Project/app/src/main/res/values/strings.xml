@@ -5,4 +5,7 @@
     <string name="materiaal">Materiaal:</string>
     <string name="ondergrond">Ondergrond:</string>
     <string name="plaatsingsdatum">Plaatsingsdatum:</string>
+    <string name="onbekend">Onbekend</string>
+    <string name="toon_op_kaart">Toon op Kaart</string>
+    <string name="toon_op_kaart">Toon op Kaart</string>
 </resources>
