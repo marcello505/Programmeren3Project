@@ -12,7 +12,7 @@ public class Element implements Parcelable {
     private String beschrijving;
     private String materiaal;
     private String ondergrond;
-    private int plaatsingDatum;
+    private long plaatsingDatum;
     private String imageUrl;
     private double geoX;
     private double geoY;
@@ -59,7 +59,7 @@ public class Element implements Parcelable {
         dest.writeString(beschrijving);
         dest.writeString(materiaal);
         dest.writeString(ondergrond);
-        dest.writeInt(plaatsingDatum);
+        dest.writeLong(plaatsingDatum);
         dest.writeString(imageUrl);
         dest.writeDouble(geoX);
         dest.writeDouble(geoY);
@@ -154,11 +154,11 @@ public class Element implements Parcelable {
         this.geoY = geoY;
     }
 
-    public int getPlaatsingDatum() {
+    public long getPlaatsingDatum() {
         return plaatsingDatum;
     }
 
-    public void setPlaatsingDatum(int plaatsingDatum) {
+    public void setPlaatsingDatum(long plaatsingDatum) {
         this.plaatsingDatum = plaatsingDatum;
     }
 

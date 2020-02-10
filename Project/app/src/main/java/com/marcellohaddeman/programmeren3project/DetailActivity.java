@@ -59,7 +59,7 @@ public class DetailActivity extends AppCompatActivity {
         this.mMateriaalInvoer.setText(intent.getStringExtra("materiaal"));
         this.mOndergrondInvoer.setText(intent.getStringExtra("ondergrond"));
         SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
-        this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getIntExtra("plaatsingsdatum", 0))));
+        this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
 
     }
 
