@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +16,7 @@ import com.bumptech.glide.Glide;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
     private static final String TAG = "DetailActivity";
@@ -30,6 +34,9 @@ public class DetailActivity extends AppCompatActivity {
     private TextView mOndergrondInvoer;
     private TextView mPlaatsingsdatum;
     private TextView mPlaatsingsdatumInvoer;
+    private Button mToonOpKaart;
+    private double mLatitude;
+    private double mLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,18 @@ public class DetailActivity extends AppCompatActivity {
         this.mOndergrondInvoer = findViewById(R.id.tv_activity_detail_ondergrond_invoer);
         this.mPlaatsingsdatum = findViewById(R.id.tv_activity_detail_plaatsingsdatum);
         this.mPlaatsingsdatumInvoer = findViewById(R.id.tv_activity_detail_plaatsingsdatum_invoer);
+        this.mToonOpKaart = findViewById(R.id.btn_activity_detail_kaart);
+        //TODO Maak de ToonOpKaart knop af. Moet nog de GEOX en GEOY doorgeven via de ViewHolder
+
+
+        this.mToonOpKaart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uri = String.format(Locale.ENGLISH, "geo:0,0?q=%f,%f", mLatitude, mLongitude);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                DetailActivity.this.startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         this.mTitel.setText(intent.getStringExtra("titel"));
@@ -63,6 +82,11 @@ public class DetailActivity extends AppCompatActivity {
         this.mOndergrondInvoer.setText(intent.getStringExtra("ondergrond"));
         SimpleDateFormat plaatsingsDatum = new SimpleDateFormat("dd/MM/yyyy");
         this.mPlaatsingsdatumInvoer.setText(plaatsingsDatum.format(new Date(intent.getLongExtra("plaatsingsdatum", 0) * 1000)));
+        this.mLatitude = intent.getDoubleExtra("geoY", 0);
+        this.mLongitude = intent.getDoubleExtra("geoX", 0);
+        if(this.mLatitude == 0 && this.mLongitude == 0){
+            this.mToonOpKaart.setVisibility(View.GONE);
+        }
         Log.v(TAG, "onCreate: Finished method.");
 
     }

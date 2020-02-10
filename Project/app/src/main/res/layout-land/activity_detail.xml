@@ -133,6 +133,15 @@
             app:layout_constraintStart_toEndOf="@+id/tv_activity_detail_plaatsingsdatum"
             app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_ondergrond_invoer" />
 
+        <Button
+            android:id="@+id/btn_activity_detail_kaart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Toon op Kaart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_activity_detail_plaatsingsdatum_invoer" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
