@@ -43,7 +43,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         Glide.with(this.context)
                 .asBitmap()
                 .load(this.elements.get(position).getImageUrl())
-                .into(holder.image);
+                .into(holder.getImage());
         holder.getElementTitel().setText(elements.get(position).getTitel());
         holder.getGeografischeLigging().setText(elements.get(position).getGeografischeLigging());
         holder.getIdentificatie().setText(elements.get(position).getIdentificatie());
